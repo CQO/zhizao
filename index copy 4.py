@@ -47,6 +47,12 @@ try:
                 if (str(idList[i]) not in result):
                     result[str(idList[i])] = []
                 result[str(idList[i])].append([idList[j], round(x, 2)])
+    indTemp = 0
+    for item in outPut:
+        if (item[0] not in result):
+            print(outPut[indTemp])
+            del outPut[indTemp]
+        indTemp += 1
     exfile = open('output4.txt', 'w', encoding = 'UTF-8')
     exfile.write(json.dumps({
         "data": outPut,
