@@ -38,6 +38,7 @@ try:
         else:
             break
     result={}
+    linkTemp = []
     for i in range(len(idList)):
         res=[]
         print(idList[i])
@@ -46,10 +47,12 @@ try:
             if (x > 0.7):
                 if (str(idList[i]) not in result):
                     result[str(idList[i])] = []
+                if (idList[j] not in linkTemp):
+                    linkTemp.append(idList[j])
                 result[str(idList[i])].append([idList[j], round(x, 2)])
     indTemp = 0
     for item in outPut:
-        if (item[0] not in result):
+        if (item[0] not in linkTemp):
             print(outPut[indTemp])
             del outPut[indTemp]
         indTemp += 1
